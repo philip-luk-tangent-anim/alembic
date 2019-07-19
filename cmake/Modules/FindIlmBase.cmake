@@ -135,13 +135,18 @@ IF(ILMBASE_INCLUDE_DIR)
 ENDIF()
 
 
+SET(_ilmbase_static_suffix)
+IF (ALEMBIC_ILMBASE_LINK_STATIC)
+    SET(_ilmbase_static_suffix _s) 
+ENDIF()
+
 SET(_ilmbase_LIBRARIES)
 FOREACH(COMPONENT ${_ilmbase_FIND_COMPONENTS})
   STRING(TOUPPER ${COMPONENT} UPPERCOMPONENT)
 
   FIND_LIBRARY(ALEMBIC_ILMBASE_${UPPERCOMPONENT}_LIB
     NAMES
-      ${COMPONENT}-${_ilmbase_libs_ver} ${COMPONENT}
+    ${COMPONENT}-${_ilmbase_libs_ver}${_ilmbase_static_suffix} ${COMPONENT}${_ilmbase_static_suffix}
     HINTS
       ${_ilmbase_SEARCH_DIRS}
     PATH_SUFFIXES

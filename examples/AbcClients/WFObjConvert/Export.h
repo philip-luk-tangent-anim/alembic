@@ -45,7 +45,11 @@
     #endif
     #define ABC_WFOBJ_CONVERT_EXPORT_CONST
 #else
+#if defined(_GNUC)
     #define ABC_WFOBJ_CONVERT_EXPORT __attribute__ ((visibility ("default")))
+#else 
+	#define ABC_WFOBJ_CONVERT_EXPORT
+#endif
     #define ABC_WFOBJ_CONVERT_EXPORT_CONST const
 #endif
 
