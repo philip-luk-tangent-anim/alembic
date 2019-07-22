@@ -1,7 +1,7 @@
 call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
 
 if not exist .\win64_vs_build (
-    mkdir -p .\win64_vs_build
+    mkdir .\win64_vs_build
 )
 
 cd .\win64_vs_build
